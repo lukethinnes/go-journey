@@ -19,8 +19,15 @@ type Person struct {
 //Greeting method (VALUE RECEIVER)
 
 //Requires identifier then name of struct
+
 func (p Person) greet() string {
 	return "Hello, my name is " + p.firstName + " " + p.lastName + " and I am " + strconv.Itoa(p.age)
+}
+
+//hasBirthday method will be a pointer receiver
+
+func (p *Person) hasBirthday() {
+	p.age++
 }
 
 func main() {
@@ -35,5 +42,6 @@ func main() {
 	fmt.Println(person1)
 
 	//Get a single field using dot notation...
+	person1.hasBirthday()
 	fmt.Println(person1.greet())
 }
